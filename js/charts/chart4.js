@@ -372,7 +372,7 @@
           data: { values: [{}] },
           mark: {
             type: "text", align: "left", baseline: "top",
-            color: "rgba(246,239,230,0.72)", fontSize: 9, lineBreak: "\n", lineHeight: 13
+            color: "rgba(246,239,230,0.72)", fontSize: 13, lineBreak: "\n", lineHeight: 13
           },
           encoding: {
             x:    { value: annotX + 4 },
@@ -425,7 +425,7 @@
           data: { values: [{}] },
           mark: {
             type: "text", align: "left", baseline: "top",
-            color: "rgba(246,239,230,0.72)", fontSize: 9, lineBreak: "\n", lineHeight: 13
+            color: "rgba(246,239,230,0.72)", fontSize: 13, lineBreak: "\n", lineHeight: 13
           },
           encoding: {
             x:    { value: annotX + 4 },

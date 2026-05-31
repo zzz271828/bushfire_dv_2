@@ -1083,6 +1083,117 @@
        UTIL
        ============================================================ */
     .nowrap { white-space: nowrap; }
+
+    /* ============================================================
+       METADATA BLOCK
+       ============================================================ */
+    .metadata-block {
+      background: var(--bg-1);
+      border-top: 1px solid var(--line);
+      margin-top: clamp(64px, 10vh, 120px);
+      padding: clamp(40px, 6vh, 72px) 0 clamp(48px, 8vh, 88px);
+      position: relative;
+    }
+    .metadata-block::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--ember-600), transparent);
+    }
+    .metadata-inner {
+      max-width: var(--grid-max);
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+    .metadata-head { margin-bottom: 32px; }
+    .metadata-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--ember-400);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .metadata-title {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.4vw, 30px);
+      font-weight: 600;
+      color: var(--ink-1);
+      letter-spacing: -0.01em;
+    }
+    .metadata-cols {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 860px) { .metadata-cols { grid-template-columns: 1fr; } }
+    .metadata-section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 16px;
+    }
+    .metadata-refs {
+      list-style: decimal;
+      padding-left: 1.5em;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .metadata-ref {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--ink-1);
+    }
+    .metadata-ref em { font-style: italic; }
+    .metadata-link {
+      color: var(--ember-400);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .metadata-link:hover { color: var(--ember-200); text-decoration: underline; }
+    .metadata-accessed { color: var(--ink-3); font-size: 12px; }
+    .metadata-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 20px 22px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .metadata-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 28px; height: 1px;
+      background: var(--ember-600);
+    }
+    .metadata-kv { display: flex; flex-direction: column; gap: 3px; }
+    .metadata-k {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+    .metadata-v { font-size: 13px; color: var(--ink-1); line-height: 1.4; }
+    .metadata-foot {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 10.5px;
+      line-height: 1.75;
+      color: var(--ink-3);
+      letter-spacing: 0.03em;
+    }
   </style>
 </head>
 <body>
@@ -1161,10 +1272,10 @@
         </div>
 
         <p class="section-lede">
-          NASA&rsquo;s FIRMS satellites (MODIS and VIIRS) detected over 2.1&thinsp;million
-          hotspots across Australia between 2014 and 2024. Each detection is a 1&thinsp;km&sup2;
-          pixel of active burning. The map rebalances year by year, but one state never
-          lets go of the lead &mdash; and 2023 rewrote the record books nationwide.
+          NASA&rsquo;s FIRMS satellites (MODIS and VIIRS) detected over <em>2.1&thinsp;million
+          hotspots</em> across Australia between 2014 and 2024. Each detection is a <em>1&thinsp;km&sup2;</em>
+          pixel of active burning. The map rebalances year by year, but <em>one state never
+          lets go of the lead</em> &mdash; and <em>2023</em> rewrote the record books nationwide.
         </p>
 
         <div class="stats" role="list">
@@ -1204,7 +1315,7 @@
                ============================================================ -->
           <div class="chart-frame frame-h-tall" data-chart="chart1">
             <div class="chart-head">
-              <span class="chart-id">Chart 01</span>
+
               <h3 class="chart-title">Hotspots by state, year by year</h3>
             </div>
             <p class="chart-sub">
@@ -1234,16 +1345,26 @@
             <div class="insight-tag">Reading the map</div>
             <h4 class="insight-title">A continent of empty interior &mdash; and one persistent outlier.</h4>
             <p class="insight-body">
-              Year after year, <em>Northern Territory</em> and Western Australia
+              Year after year, <em>Northern Territory</em> and <em>Western Australia</em>
               dominate the detection count. The NT&rsquo;s tropical savanna burns
               annually by design: Indigenous land managers have practised seasonal
               burning for millennia, and contemporary programs integrate that
-              Traditional Ecological Knowledge with satellite monitoring.
+              <em>Traditional Ecological Knowledge</em> with satellite monitoring.
             </p>
             <p class="insight-body" style="margin-top:10px">
               Since 2013, NT Indigenous-led prescribed burns have reduced
-              late dry-season wildfires by an area equivalent to 115&thinsp;000&thinsp;km&sup2;.
-              The NT burns often &mdash; but without that management, it would burn worse.
+              late dry-season wildfires by an area equivalent to <em>115&thinsp;000&thinsp;km&sup2;</em>.
+              The NT burns often &mdash; but <em>without that management, it would burn worse</em>.
+            </p>
+            <h4 class="insight-title" style="margin-top:24px">How to interact with the chart</h4>
+            <p class="insight-body">
+              Drag the <em>year slider</em> at the bottom of the map to scrub through 2014 to 2024
+              and watch the choropleth recolour year by year as the hotspot count shifts between states.
+            </p>
+            <p class="insight-body" style="margin-top:10px">
+              Hover over any state or territory to see its exact detection count for the selected year.
+              The colour scale adjusts to the full range of that year, so always read the legend to
+              compare magnitudes across years.
             </p>
             <div class="insight-foot">Source &middot; NASA FIRMS &middot; MODIS + VIIRS &middot; 2014&ndash;2024</div>
           </aside>
@@ -1263,11 +1384,11 @@
         </div>
 
         <p class="section-lede">
-          The NT produces roughly 36% of all Australian hotspot detections over the decade.
-          Brush across the overview panel to pull any time window into focus. The 2023
-          peak &mdash; particularly September through October &mdash; stands as the
+          The NT produces roughly <em>36%</em> of all Australian hotspot detections over the decade.
+          Brush across the overview panel to pull any time window into focus. The <em>2023
+          peak</em> &mdash; particularly <em>September through October</em> &mdash; stands as the
           largest detection period on record, driven by an extraordinary heat event
-          across the Barkly Tablelands and Tanami Desert.
+          across the <em>Barkly Tablelands</em> and <em>Tanami Desert</em>.
         </p>
 
         <div class="layout layout-full">
@@ -1283,7 +1404,7 @@
                ============================================================ -->
           <div class="chart-frame frame-h-med" data-chart="chart2">
             <div class="chart-head">
-              <span class="chart-id">Chart 02</span>
+
               <h3 class="chart-title">NT daily hotspots · overview + detail</h3>
             </div>
             <p class="chart-sub">
@@ -1309,16 +1430,16 @@
             <div class="insight-tag">The monsoon rhythm</div>
             <h4 class="insight-title">Wet suppresses. Dry ignites.</h4>
             <p class="insight-body">
-              The NT sits in a tropical monsoon belt. Nearly 90% of annual rainfall falls
-              between November and April. When the wet season ends, grasses cure rapidly
-              into dense fuel loads, and fire counts climb steeply from May onward.
+              The NT sits in a <em>tropical monsoon belt</em>. Nearly <em>90%</em> of annual rainfall falls
+              between <em>November and April</em>. When the wet season ends, grasses cure rapidly
+              into dense fuel loads, and fire counts climb steeply from <em>May</em> onward.
             </p>
             <p class="insight-body" style="margin-top:10px">
-              In 2023 &mdash; the decade&rsquo;s record year with <em>136,961</em> NT
-              hotspot detections &mdash; September recorded just 0.4&thinsp;mm of rain
-              (seventh driest on record) while temperatures averaged 2.08&thinsp;&deg;C
-              above the 1961&ndash;1990 mean. The season was extreme in degree, not
-              in shape.
+              In <em>2023</em> &mdash; the decade&rsquo;s record year with <em>136,961</em> NT
+              hotspot detections &mdash; September recorded just <em>0.4&thinsp;mm of rain</em>
+              (seventh driest on record) while temperatures averaged <em>2.08&thinsp;&deg;C</em>
+              above the 1961&ndash;1990 mean. The season was <em>extreme in degree, not
+              in shape</em>.
             </p>
             <div class="insight-foot">Source &middot; NASA FIRMS &middot; NT Monthly Hotspot Dataset &middot; 2014&ndash;2024</div>
           </aside>
@@ -1326,9 +1447,9 @@
             <div class="insight-tag">How to read it</div>
             <h4 class="insight-title">Overview + detail brush.</h4>
             <p class="insight-body">
-              The top panel spans the full eleven-year record. Drag to paint a selection
-              window, and the lower panel zooms into that exact range. Any anomaly &mdash;
-              a single catastrophic month, a COVID-year dip in activity, a late-season
+              The <em>top panel</em> spans the full eleven-year record. Drag to paint a selection
+              window, and the <em>lower panel</em> zooms into that exact range. Any anomaly &mdash;
+              a <em>single catastrophic month</em>, a <em>COVID-year dip</em> in activity, a late-season
               surge &mdash; can be examined without losing the decade-scale context.
             </p>
             <div class="insight-foot">Source &middot; NASA FIRMS &middot; MODIS + VIIRS &middot; NT</div>
@@ -1362,16 +1483,22 @@
             <div class="insight-tag">Seasonal pattern</div>
             <h4 class="insight-title">The dry season is the fire season.</h4>
             <p class="insight-body">
-              Across all eleven years, roughly 75&ndash;80% of NT hotspot detections fall
-              between June and November. August through October are the dominant months
+              Across all eleven years, roughly <em>75&ndash;80%</em> of NT hotspot detections fall
+              between <em>June and November</em>. <em>August through October</em> are the dominant months
               in every row &mdash; a structural signal that does not change with the calendar.
             </p>
             <p class="insight-body" style="margin-top:10px">
-              What does change is scale. The <em>2023</em> row is exceptionally bright:
-              nearly double any prior year. An unprecedented September heat event
-              (0.4&thinsp;mm rain; +2.1&thinsp;&deg;C anomaly) compressed an already
+              What does change is <em>scale</em>. The <em>2023</em> row is exceptionally bright:
+              <em>nearly double</em> any prior year. An unprecedented September heat event
+              (<em>0.4&thinsp;mm rain</em>; <em>+2.1&thinsp;&deg;C anomaly</em>) compressed an already
               intense dry-season into a record-breaking single month. 2023 did not invent
               the pattern &mdash; it amplified it to a new extreme.
+            </p>
+            <p class="insight-body" style="margin-top:10px">
+              2023 did not alter the established seasonal pattern &mdash; it followed the
+              same dry-season timetable observed throughout the decade. The familiar
+              <em>August&ndash;October peak</em> expanded into a <em>record-breaking surge</em>, transforming
+              a typical fire season into the <em>most extreme year in the dataset</em>.
             </p>
             <div class="insight-foot">Source &middot; NASA FIRMS &middot; NT Monthly Aggregates &middot; 2014&ndash;2024</div>
           </aside>
@@ -1388,7 +1515,7 @@
                ============================================================ -->
           <div class="chart-frame frame-h-med" data-chart="chart3">
             <div class="chart-head">
-              <span class="chart-id">Chart 03</span>
+
               <h3 class="chart-title">NT hotspots · month × year</h3>
             </div>
             <p class="chart-sub">Darker = more detections. Hover any cell for counts.</p>
@@ -1421,12 +1548,12 @@
         </div>
 
         <p class="section-lede">
-          Every dot is a single satellite detection, coloured by fire radiative power.
+          Every dot is a single satellite detection, coloured by <em>fire radiative power</em>.
           The map reveals which parts of the NT carry the load: the tropical savanna of
-          the Top End and Arnhem Land, the Barkly Tablelands, and the Tanami Desert each
+          the <em>Top End</em> and <em>Arnhem Land</em>, the <em>Barkly Tablelands</em>, and the <em>Tanami Desert</em> each
           flare in different years. Step through the decade to watch the spatial pattern
           evolve &mdash; then read the intensity pyramid below to see how the balance
-          between low- and high-energy fires has shifted year to year.
+          between <em>low- and high-energy fires</em> has shifted year to year.
         </p>
 
         <div class="layout layout-2-1">
@@ -1435,7 +1562,7 @@
                ============================================================ -->
           <div class="chart-frame frame-aspect-1" data-chart="chart4">
             <div class="chart-head">
-              <span class="chart-id">Chart 04</span>
+
               <h3 class="chart-title">NT hotspot intensity, 2014 - 2024</h3>
             </div>
             <p class="chart-sub">
@@ -1463,19 +1590,19 @@
             <div class="insight-tag">Geography</div>
             <h4 class="insight-title">Location is constant. Intensity is the year-to-year story.</h4>
             <p class="insight-body">
-              Fires consistently concentrate across the <em>Top End</em>, Arnhem Land,
-              and the Barkly Tablelands &mdash; tropical and semi-arid savanna country
-              where seasonal burning is a structural feature of land management, not an
+              Fires consistently concentrate across the <em>Top End</em>, <em>Arnhem Land</em>,
+              and the <em>Barkly Tablelands</em> &mdash; tropical and semi-arid savanna country
+              where seasonal burning is a <em>structural feature of land management</em>, not an
               accident.
             </p>
             <p class="insight-body" style="margin-top:10px">
-              Early dry-season burns (April&ndash;July), practised by Indigenous rangers
+              Early dry-season burns (<em>April&ndash;July</em>), practised by Indigenous rangers
               under traditional ecological knowledge, create firebreaks that limit the
               scale of late-season fires. The dot colours tell the consequence: years
-              with coordinated early burning show fewer extreme-FRP detections than
-              years where late dry-season conditions escape control.
+              with <em>coordinated early burning</em> show fewer extreme-FRP detections than
+              years where <em>late dry-season conditions escape control</em>.
             </p>
-            <h4 class="insight-title" style="margin-top:24px">How to interact with the chart</h4>
+            <h4 class="insight-title" style="margin-top:48px">How to interact with the chart</h4>
             <p class="insight-body">
               Press <em>Play</em> to animate hotspot detections from 2014 to 2024 and observe how fire activity
               shifts across the Northern Territory over time. Drag the year slider to move directly to a specific
@@ -1500,23 +1627,23 @@
             <div class="insight-tag">Intensity split</div>
             <h4 class="insight-title">High-intensity fires are rare &mdash; but carry outsized impact.</h4>
             <p class="insight-body">
-              In most years, detections above 50&thinsp;MW account for fewer than 20% of
-              the total &mdash; yet each high-FRP event releases roughly ten times the
+              In most years, detections above <em>50&thinsp;MW</em> account for <em>fewer than 20%</em> of
+              the total &mdash; yet each high-FRP event releases roughly <em>ten times</em> the
               radiative energy per area of a low-intensity fire, with disproportionate
-              consequences for smoke emissions and ecosystem recovery time.
+              consequences for <em>smoke emissions</em> and <em>ecosystem recovery time</em>.
             </p>
             <p class="insight-body" style="margin-top:10px">
-              The 2023 bar stands apart on both sides: record low- <em>and</em>
-              high-intensity counts. The spike was not simply more fires; it was more
-              fires of every kind, driven by an exceptional late dry-season heat event
-              across the Barkly Tablelands and Tanami Desert.
+              The <em>2023</em> bar stands apart on both sides: record low- <em>and</em>
+              high-intensity counts. The spike was not simply more fires; it was <em>more
+              fires of every kind</em>, driven by an exceptional late dry-season heat event
+              across the <em>Barkly Tablelands</em> and <em>Tanami Desert</em>.
             </p>
             <div class="insight-foot">Source &middot; NASA FIRMS &middot; MODIS + VIIRS &middot; NT 2014&ndash;2024</div>
           </aside>
 
           <div class="chart-frame frame-h-med" data-chart="chart7">
             <div class="chart-head">
-              <span class="chart-id">Chart 07</span>
+
               <h3 class="chart-title">Low vs high intensity detections by year</h3>
             </div>
             <p class="chart-sub">
@@ -1551,8 +1678,8 @@
         </div>
 
         <p class="section-lede">
-          Each square below represents 1% of all hotspot detections in a selected year,
-          divided across six 4-hour UTC windows. The afternoon peak is persistent across
+          Each square below represents <em>1%</em> of all hotspot detections in a selected year,
+          divided across <em>six 4-hour UTC windows</em>. The <em>afternoon peak</em> is persistent across
           the full decade &mdash; heat, low humidity, and wind converge in a consistent
           daily window that satellite sensors reliably capture.
         </p>
@@ -1561,7 +1688,7 @@
           <!-- CHART 5 · Waffle: 6 time-of-day windows -->
           <div class="chart-frame frame-h-tall" data-chart="chart5">
             <div class="chart-head">
-              <span class="chart-id">Chart 05</span>
+
               <h3 class="chart-title">Fire detections by time of day</h3>
             </div>
             <p class="chart-sub">
@@ -1597,17 +1724,17 @@
             <div class="insight-tag">Daily fire window</div>
             <h4 class="insight-title">Afternoon heat drives the detection peak &mdash; every year.</h4>
             <p class="insight-body">
-              The 12:00&ndash;15:59&thinsp;UTC window (approximately 21:30&ndash;01:29 ACST)
-              accounts for the largest share of daily hotspot detections in almost every
+              The <em>12:00&ndash;15:59&thinsp;UTC</em> window (approximately 21:30&ndash;01:29 ACST)
+              accounts for the <em>largest share</em> of daily hotspot detections in almost every
               year. Peak solar heating lowers fuel moisture and accelerates fire spread,
-              making this the highest-risk window of the day.
+              making this the <em>highest-risk window of the day</em>.
             </p>
             <p class="insight-body" style="margin-top:10px">
-              Late night and early morning (00:00&ndash;07:59&thinsp;UTC) record the
-              fewest detections. Overnight cooling and rising humidity suppress active
+              Late night and early morning (<em>00:00&ndash;07:59&thinsp;UTC</em>) record the
+              <em>fewest detections</em>. Overnight cooling and rising humidity suppress active
               burning, even where fire fronts remain smouldering beneath the surface.
               The pattern holds consistently across the decade &mdash; years differ in
-              magnitude, not in shape.
+              <em>magnitude, not in shape</em>.
             </p>
             <div class="insight-foot">Source &middot; NASA FIRMS &middot; MODIS + VIIRS &middot; 2014&ndash;2024</div>
           </aside>
@@ -1640,9 +1767,9 @@
             <div class="insight-tag">Fire intensity</div>
             <h4 class="insight-title">Brighter hotspots radiate more power &mdash; but footprint tells a different story.</h4>
             <p class="insight-body">
-              Across a 900-point sample drawn from 757&thinsp;000 NT hotspot records,
-              brightness (K) and fire radiative power (FRP, MW) show a moderate positive
-              correlation. The bulk of detections cluster in the Low tier &mdash; the dense
+              Across a <em>900-point sample</em> drawn from <em>757&thinsp;000</em> NT hotspot records,
+              brightness (K) and fire radiative power (FRP, MW) show a <em>moderate positive
+              correlation</em>. The bulk of detections cluster in the <em>Low tier</em> &mdash; the dense
               cloud of grass fires that define the NT dry season landscape.
             </p>
             <p class="insight-body" style="margin-top:10px">
@@ -1672,7 +1799,7 @@
           </aside>
           <div class="chart-frame frame-h-tall" data-chart="chart6">
             <div class="chart-head">
-              <span class="chart-id">Chart 06</span>
+
               <h3 class="chart-title">Brightness, FRP, and scan area &mdash; animated by intensity tier</h3>
             </div>
             <p class="chart-sub">
@@ -1711,11 +1838,11 @@
         </div>
 
         <p class="section-lede">
-          Hotspot counts only tell half the story. The other half is who lives in
-          the path, and how ready they are. The NT Government&rsquo;s 2020 Community
-          Bushfire Risk Assessment covers 765 remote communities across five risk
-          tiers. Follow the flow: risk level shapes preparedness, and preparedness
-          shapes who funds the response &mdash; exposing a structural gap that
+          Hotspot counts only tell <em>half the story</em>. The other half is who lives in
+          the path, and how ready they are. The NT Government&rsquo;s <em>2020 Community
+          Bushfire Risk Assessment</em> covers <em>765 remote communities</em> across five risk
+          tiers. Follow the flow: <em>risk level shapes preparedness</em>, and preparedness
+          shapes <em>who funds the response</em> &mdash; exposing a structural gap that
           satellite data alone cannot reveal.
         </p>
 
@@ -1723,7 +1850,7 @@
           <!-- Chart 8 · Population by risk -->
           <div class="chart-frame frame-h-tall" data-chart="chart8" style="min-height:680px">
             <div class="chart-head">
-              <span class="chart-id">Chart 08</span>
+
               <h3 class="chart-title">Population distribution by risk</h3>
             </div>
             <div class="chart-stage" id="chart8">
@@ -1742,21 +1869,21 @@
             <h4 class="insight-title">High-risk, zero measures.</h4>
             <p class="insight-body">
               Every single community in the <em>Unprepared</em> tier &mdash; no fuel reduction,
-              no firebreak, no fire plan &mdash; is also unfunded. Of the 168 high-risk
-              communities, 140 fall into this bracket. The Sankey below makes the
+              no firebreak, no fire plan &mdash; is also <em>unfunded</em>. Of the <em>168 high-risk
+              communities</em>, <em>140</em> fall into this bracket. The Sankey below makes the
               structural pattern visible.
             </p>
             <p class="insight-body" style="margin-top:14px">
               Three ridgelines, three very different stories. High-risk NT communities are
-              overwhelmingly tiny &mdash; most house fewer than 100 people, placing them beyond
-              the reach of rapid emergency response. Small populations mean less political voice,
+              overwhelmingly tiny &mdash; most house <em>fewer than 100 people</em>, placing them beyond
+              the reach of rapid emergency response. Small populations mean <em>less political voice</em>,
               less infrastructure funding, and fewer trained local volunteers.
             </p>
             <p class="insight-body" style="margin-top:10px">
               Moderate-risk communities span the widest range: from tiny seasonal outposts to
-              small towns with some services, reflecting diverse land tenures and fire-management
+              small towns with some services, reflecting diverse <em>land tenures</em> and fire-management
               histories. Low-risk communities also skew small, but their classification reflects
-              better preparedness and proximity to suppression resources &mdash; not just size.
+              <em>better preparedness</em> and proximity to suppression resources &mdash; not just size.
             </p>
             <p class="insight-body" style="margin-top:10px; color: var(--ink-2)">
               Each dot is one community. Hover for name, LGA, population, and preparedness score.
@@ -1773,14 +1900,14 @@
           <div class="section-kicker">Sankey flow &middot; Risk &rarr; Preparedness &rarr; Funding &middot; 765 NT communities</div>
         </div>
         <p class="section-lede">
-          Every unprepared community receives no funding &mdash; that single finding is the thread running through this diagram. Follow the bands from left to right: a community&rsquo;s official risk rating funnels it into a preparedness tier, and that tier determines whether any funding reaches it at all. The structural misalignment is not subtle; it is total.
+          <em>Every unprepared community receives no funding</em> &mdash; that single finding is the thread running through this diagram. Follow the bands from left to right: a community&rsquo;s official <em>risk rating</em> funnels it into a <em>preparedness tier</em>, and that tier determines whether any funding reaches it at all. The structural misalignment is <em>not subtle; it is total</em>.
         </p>
 
         <!-- Chart 9 · Sankey: Risk -> Preparedness -> Funding -->
         <div class="layout layout-full" style="margin-top: clamp(12px,1.4vw,20px);">
           <div class="chart-frame frame-h-tall" data-chart="chart9">
             <div class="chart-head">
-              <span class="chart-id">Chart 09</span>
+
               <h3 class="chart-title">From risk to funding: where communities fall</h3>
             </div>
             <p class="chart-sub">
@@ -1812,8 +1939,8 @@
               <em>funding status</em> node &mdash; funded or not funded.
             </p>
             <p class="insight-body" style="margin-top:10px">
-              The <strong>width of each band</strong> is proportional to the number of
-              communities it carries. A thick band from High Risk &rarr; Unprepared
+              The <em>width of each band</em> is proportional to the number of
+              communities it carries. A <em>thick band</em> from High Risk &rarr; Unprepared
               &rarr; Not Funded is the structural problem this dataset reveals.
               Hover any band or node for the exact community count.
             </p>
@@ -1822,16 +1949,16 @@
             <div class="insight-tag">The key finding</div>
             <h4 class="insight-title">Every unprepared community receives no funding.</h4>
             <p class="insight-body">
-              All 274 communities in the <em>Unprepared (0/3)</em> tier &mdash; those
+              All <em>274 communities</em> in the <em>Unprepared (0/3)</em> tier &mdash; those
               with no fuel reduction, no firebreaks, and no fire plan &mdash; end up in
-              the &ldquo;Not Funded&rdquo; node. The funding system does not reach the
-              communities that have done nothing, creating a reinforcing cycle: no
+              the <em>&ldquo;Not Funded&rdquo;</em> node. The funding system does not reach the
+              communities that have done nothing, creating a <em>reinforcing cycle</em>: no
               measures means no funding, which means no capacity to implement measures.
             </p>
             <p class="insight-body" style="margin-top:10px">
-              Of the 168 communities rated <em>High Risk</em>, the majority flow through
-              the Unprepared channel. Risk level and preparedness level are structurally
-              misaligned across the NT.
+              Of the <em>168 communities</em> rated <em>High Risk</em>, the majority flow through
+              the Unprepared channel. Risk level and preparedness level are <em>structurally
+              misaligned</em> across the NT.
             </p>
             <div class="insight-foot">Source &middot; NT Community Bushfire Risk Assessment &middot; 2020</div>
           </aside>
@@ -1844,7 +1971,7 @@
           <div class="section-kicker">Small multiples &middot; 100&thinsp;% stacked bars &middot; four dimensions &middot; 765 communities</div>
         </div>
         <p class="section-lede">
-          Preparedness is not evenly distributed. By slicing the same 765-community dataset across risk level, community type, fire management zone, and regional council, a consistent picture emerges: the &ldquo;Low (1/3)&rdquo; tier dominates everywhere. Family Outstations and high-risk communities carry the greatest share of zero-measure households, while the barriers appear structural rather than geographic.
+          Preparedness is <em>not evenly distributed</em>. By slicing the same <em>765-community dataset</em> across risk level, community type, fire management zone, and regional council, a consistent picture emerges: the <em>&ldquo;Low (1/3)&rdquo; tier dominates everywhere</em>. <em>Family Outstations</em> and high-risk communities carry the greatest share of zero-measure households, while the barriers appear <em>structural rather than geographic</em>.
         </p>
 
         <!-- Chart 10 · Small multiples: Preparedness by group -->
@@ -1853,16 +1980,20 @@
             <div class="insight-tag">Preparedness</div>
             <h4 class="insight-title">Most communities have only partial measures in place.</h4>
             <p class="insight-body">
-              Across all four dimensions, the &ldquo;Low (1/3)&rdquo; tier dominates &mdash; meaning the majority of NT communities have adopted just one of the three core bushfire preparedness measures: fuel reduction, firebreaks, or a fire plan.
+              Across all four dimensions, the <em>&ldquo;Low (1/3)&rdquo; tier dominates</em> &mdash; meaning the majority of NT communities have adopted just <em>one</em> of the three core bushfire preparedness measures: fuel reduction, firebreaks, or a fire plan.
             </p>
-            <p class="insight-body" style="margin-top:10px">
-              Family Outstations stand out with the highest share of fully unprepared communities. In contrast, Major communities show a broader spread, with a meaningful proportion reaching the &ldquo;Full (3/3)&rdquo; tier. The pattern holds across fire management zones and regional councils, suggesting structural rather than geographic barriers to preparedness.
+            <p class="insight-body" style="margin-top:15px">
+              <em>Family Outstations</em> stand out with the <em>highest share of fully unprepared communities</em>. In contrast, <em>Major communities</em> show a broader spread, with a meaningful proportion reaching the <em>&ldquo;Full (3/3)&rdquo;</em> tier. The pattern holds across fire management zones and regional councils, suggesting <em>structural rather than geographic</em> barriers to preparedness.
+            </p>
+            <h4 class="insight-title" style="margin-top:48px">How to interact with the chart</h4>
+            <p class="insight-body" style="margin-top:15px">
+              Select different options at the top of the chart to filter by dimension, and watch how the stacked bars shift across each group.
             </p>
             <div class="insight-foot">Source &middot; NT Community Bushfire Risk &middot; AFAC</div>
           </aside>
           <div class="chart-frame frame-h-tall" data-chart="chart10">
             <div class="chart-head">
-              <span class="chart-id">Chart 10</span>
+
               <h3 class="chart-title">Who is prepared? Comparing across every dimension</h3>
             </div>
             <p class="chart-sub">
@@ -1895,6 +2026,83 @@
         <span>2014&ndash;2024 &middot; 757&thinsp;000+ hotspot records</span>
       </div>
     </footer>
+
+    <!-- ============================================================
+         METADATA · Data sources, authorship, copyright
+         ============================================================ -->
+    <section class="metadata-block" aria-label="Metadata and data sources">
+      <div class="metadata-inner">
+
+        <div class="metadata-head">
+          <span class="metadata-tag">Metadata &amp; Authorship</span>
+          <div class="metadata-title">NT Bushfire Atlas &mdash; FIT2179 Data Visualisation 2</div>
+        </div>
+
+        <div class="metadata-cols">
+
+          <!-- Left: data source citations -->
+          <div>
+            <div class="metadata-section-label">Data Sources</div>
+            <ol class="metadata-refs">
+
+              <li class="metadata-ref">
+                NASA MODIS Science Data Support Team. (2021).
+                <em>VIIRS (NOAA-21/JPSS-2) I Band 375&thinsp;m Active Fire Product NRT (Vector data)</em>
+                [Data set]. NASA LANCE MODIS at the MODAPS.
+                <a class="metadata-link"
+                   href="https://doi.org/10.5067/FIRMS/MODIS/MCD14DL.NRT.0061"
+                   target="_blank" rel="noopener noreferrer">
+                  https://doi.org/10.5067/FIRMS/MODIS/MCD14DL.NRT.0061
+                </a>
+                <span class="metadata-accessed">Date accessed: 2026-05-31.</span>
+              </li>
+
+              <li class="metadata-ref">
+                NT Government. (2020).
+                Bushfire Risk for Remote Communities in the Northern Territory.
+                <em>NTG Open Data Portal.</em>
+                <a class="metadata-link"
+                   href="https://data.nt.gov.au/dataset/bushfire-risk-for-remote-communities-in-the-northern-territory/resource/2d7dafe2-5f5c-415b-adb6-11d45d6b8e6d"
+                   target="_blank" rel="noopener noreferrer">
+                  data.nt.gov.au
+                </a>
+              </li>
+
+            </ol>
+
+            <p class="metadata-foot">
+              All data remains the property of the respective providers. Satellite hotspot
+              records are sourced from NASA&rsquo;s Fire Information for Resource Management
+              System (FIRMS). Community risk data is sourced from the Northern Territory
+              Government Open Data Portal. This visualisation was produced solely for
+              academic assessment purposes.
+            </p>
+          </div>
+
+          <!-- Right: authorship card -->
+          <div class="metadata-card">
+            <div class="metadata-kv">
+              <span class="metadata-k">Author</span>
+              <span class="metadata-v">FIT2179 Student</span>
+            </div>
+            <div class="metadata-kv">
+              <span class="metadata-k">Course</span>
+              <span class="metadata-v">FIT2179 &middot; Data Visualisation 2<br/>Monash University</span>
+            </div>
+            <div class="metadata-kv">
+              <span class="metadata-k">Date</span>
+              <span class="metadata-v">31 May 2026</span>
+            </div>
+            <div class="metadata-kv">
+              <span class="metadata-k">Dataset period</span>
+              <span class="metadata-v">2014&ndash;2024</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ============================================================

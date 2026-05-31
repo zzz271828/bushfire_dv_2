@@ -149,7 +149,7 @@
     var w = chartContainer.clientWidth  || (frameEl ? frameEl.clientWidth  - 36 : 420);
     var h = (chartContainer.clientHeight || (frameEl ? frameEl.clientHeight - 90 : 480)) - toolbarH;
     var useH = Math.max(240, Math.floor(h) - 8);
-    var maxW = Math.floor(useH * 1.3);
+    var maxW = Math.floor(useH * 2.7);
     var useW = Math.min(Math.max(240, Math.floor(w) - 8), maxW);
     return { width: useW, height: useH };
   }
@@ -181,12 +181,12 @@
       encoding: {
         x: {
           field: "col", type: "ordinal",
-          scale: { domain: [0,1,2,3,4,5,6,7,8,9], paddingInner: 0.08, paddingOuter: 0.02 },
+          scale: { domain: [0,1,2,3,4,5,6,7,8,9], paddingInner: 0.06, paddingOuter: 0.01 },
           axis:  null
         },
         y: {
           field: "row", type: "ordinal",
-          scale: { domain: [9,8,7,6,5,4,3,2,1,0], paddingInner: 0.08, paddingOuter: 0.02 },
+          scale: { domain: [9,8,7,6,5,4,3,2,1,0], paddingInner: 0.06, paddingOuter: 0.01 },
           axis:  null
         },
         fill: {

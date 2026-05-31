@@ -192,7 +192,7 @@
             },
             {
               data: { values: [{}] },
-              mark: { type: "text", align: "left", baseline: "top", fontSize: 9, color: "rgba(246,239,230,0.72)", lineBreak: "\n", lineHeight: 13 },
+              mark: { type: "text", align: "left", baseline: "top", fontSize: 13, color: "rgba(246,239,230,0.72)", lineBreak: "\n", lineHeight: 13 },
               encoding: {
                 x:    { value: annotXLeft },
                 y:    { value: annotY },
@@ -249,7 +249,7 @@
             },
             {
               data: { values: [{}] },
-              mark: { type: "text", align: "right", baseline: "top", fontSize: 9, color: "rgba(246,239,230,0.72)", lineBreak: "\n", lineHeight: 13 },
+              mark: { type: "text", align: "right", baseline: "top", fontSize: 13, color: "rgba(246,239,230,0.72)", lineBreak: "\n", lineHeight: 13 },
               encoding: {
                 x:    { value: annotXRight },
                 y:    { value: annotY },
